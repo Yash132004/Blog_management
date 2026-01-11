@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile: {{ employee.first_name }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f4f7f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .profile-card {
+            max-width: 450px;
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .profile-header {
+            background: linear-gradient(45deg, #2626fc, #6a11cb);
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%; /* Makes image circular */
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 15px;
+        }
+        .contact-info {
+            padding: 30px;
+            background: white;
+        }
+        .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+        .value {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <div class="card profile-card mx-auto shadow-lg">
+        <div class="profile-header">
+            <img src="{{ employee.photo.url }}" alt="{{ employee.first_name }}" class="profile-img">
+            <h2 class="h4 mb-1 fw-bold">{{ employee.first_name }} {{ employee.last_name }}</h2>
+            <span class="badge bg-light text-primary px-3 py-2 rounded-pill shadow-sm">
+                {{ employee.designation }}
+            </span>
+        </div>
+
+        <div class="contact-info">
+            <div class="row">
+                <div class="col-12">
+                    <p class="label">Email Address</p>
+                    <p class="value"><a href="mailto:{{ employee.email }}" class="text-decoration-none text-dark">{{ employee.email }}</a></p>
+                    
+                    <p class="label">Phone Number</p>
+                    <p class="value">{{ employee.phone }}</p>
+                    
+                    <div class="d-grid mt-4">
+                        <a href="/" class="btn btn-outline-primary rounded-pill">View Directory</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee detail page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h3 style ="text-align: center; color:rgba(38, 38, 252, 0.781); font-family:cursive; text-decoration-line:underline;">This is Employee Details page: </h3>
+    <div class = "container pt-5">
+        <div class = "card mx-auto" style="width:18rem;">
+            <div class ="card-body" style="color:rgb(12, 6, 6); font-family:cursive; text-align: center; background-color: rgb(164, 171, 211);">
+                <p class = "card-text">
+                  <img  src="{{ employee.photo.url }}" alt="employee profile" height = "220px" width = "220px" >
+                    <p>{{ employee.first_name}} {{ employee.last_name }}</p>
+                    <p>{{ employee.designation }}</p>
+                    <p>{{ employee.email }}</p>
+                    <p>{{ employee.phone }}</p>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html> -->

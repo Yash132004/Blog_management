@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ blog.title }} | Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .blog-container {
+            max-width: 800px; /* Limits width for better reading experience */
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .blog-image {
+            width: 100%;
+            height: 400px;
+            object-fit:contain; /* Prevents image stretching */
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .blog-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .author-badge {
+            font-style: italic;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 blog-container">
+            
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Blog Detail</li>
+              </ol>
+            </nav>
+
+            <h1 class="display-4 fw-bold mb-3" style="color: #2626fc;">{{ blog.title }}</h1>
+            
+            <div class="d-flex align-items-center mb-4">
+                <div class="author-badge">
+                    Published by <span class="fw-bold text-dark">{{ blog.author }}</span>
+                </div>
+            </div>
+
+            {% if blog.picture %}
+            <img src="{{ blog.picture.url }}" class="blog-image shadow-sm" alt="{{ blog.title }}">
+            {% endif %}
+
+            <div class="blog-content">
+                {{ blog.blogs|linebreaks }}
+            </div>
+
+            <hr class="my-5">
+            
+            <div class="d-flex justify-content-between">
+                <a href="/blog" class="btn btn-outline-secondary">← Back to Feed</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog detail page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h3 style ="text-align: center; color:rgba(38, 38, 252, 0.781); font-family:cursive; text-decoration-line:underline;">This is Blog Details page: </h3>
+    <div class = "container pt-5">
+        <div class = "card mx-auto" style="width:18rem;">
+            <div class ="card-body" style="color:rgb(12, 6, 6); font-family:cursive; text-align: center; background-color: rgb(164, 171, 211);">
+                <p class = "card-text">
+                  <img  src="{{ blog.picture.url }}" alt="blog picture" height = "220px" width = "220px" >
+                    <p>{{ blog.title }}</p>
+                    <p>{{ blog.author }}</p>
+                    <p >{{blog.blogs}}</p>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html> -->
